@@ -11,7 +11,7 @@
    </tr>
   <tr>
     <td align="left">Проект maven с модульной структурой</td>
-    <td align="left">L01_maven</td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw01-maven/L01-maven">L01_maven</a></td>
     <td>В работе</td>
   </tr>
 </table>
