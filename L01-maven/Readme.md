@@ -9,7 +9,7 @@
 <groupId>com.google.guava</groupId>
 <artifactId>guava</artifactId>
 7) Создайте модуль hw01-maven
-8) В модуле сделайте класс HelloOtus
+8) В модуле сделайте класс ru.otus.l011.HelloOtus
 9) В этом классе сделайте вызов какого-нибудь метода из guava
 10) Добавьте нужный плагин maven и соберите "толстый-jar"
 11) Убедитесь, что "толстый-jar" запускается.

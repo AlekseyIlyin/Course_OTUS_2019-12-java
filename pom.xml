@@ -10,15 +10,27 @@
 
     <groupId>ru.otus</groupId>
     <artifactId>OtusJavaHW</artifactId>
-    <version>2019-03-SNAPSHOT</version>
+    <version>2019-12-SNAPSHOT</version>
 
     <description>Code examples</description>
 
     <developers>
         <developer>
-            <name>sergey</name>
+            <name>ilyin</name>
         </developer>
     </developers>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <modules>
         <module>L01-maven</module>
@@ -46,11 +58,13 @@
 
     <build>
         <pluginManagement>
+            <!-- NOTE: These plugins will be removed from future versions of the super POM -->
+            <!-- They are kept for the moment as they are very unlikely to conflict with lifecycle mappings (MNG-4453) -->
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.2.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
