@@ -14,4 +14,10 @@
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw01-maven/L01-maven">L01_maven</a></td>
     <td>Сдано</td>
   </tr>
+  <tr>
+    <td align="left">Написать свою реализацию ArrayList на основе массива.</td>
+    <td align="left"><!--<a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw01-maven/L01-maven">L01_maven</a>--></td>
+    <td>Ожидает проверку</td>
+  </tr>
+  
 </table>
