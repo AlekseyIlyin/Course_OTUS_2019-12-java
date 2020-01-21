@@ -5,15 +5,22 @@ import java.util.function.Consumer;
 
 //Написать свою реализацию ArrayList на основе массива.
 public class DIYarrayList<T> implements List<T> {
+
+    private final int SPARE_CORE_ARRAY_SPACE = 5;
+
     private Object[] coreArray;
+    private int sizeCoreArray;
     private int size;
 
     public DIYarrayList() {
-        this.coreArray = new Object[0];
+        this.coreArray = new Object[SPARE_CORE_ARRAY_SPACE];
+        this.sizeCoreArray = SPARE_CORE_ARRAY_SPACE;
+        this.size = 0;
     }
 
     public DIYarrayList(int size) {
         this.coreArray = new Object[size];
+        this.sizeCoreArray = size;
         this.size = size;
     }
 
@@ -51,8 +58,10 @@ public class DIYarrayList<T> implements List<T> {
     protected transient int modCount = 0;
 
     private void resizeCoreArray(int needSize){
-        coreArray = Arrays.copyOf(coreArray, needSize);
-        size = needSize;
+        if (needSize > this.sizeCoreArray) {
+            coreArray = Arrays.copyOf(coreArray, needSize + SPARE_CORE_ARRAY_SPACE);
+        }
+        this.size = needSize;
     }
 
     /**
@@ -99,7 +108,7 @@ public class DIYarrayList<T> implements List<T> {
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -146,25 +155,36 @@ public class DIYarrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        Objects.checkIndex(index, this.size);
         return (T) coreArray[index];
     }
 
+    /**
+     * Replaces the element at the specified position in this list with
+     * the specified element.
+     *
+     * @param index index of the element to replace
+     * @param element element to be stored at the specified position
+     * @return the element previously at the specified position
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
     @Override
-    public Object set(int index, Object element) {
-        if (index > size - 1) {
-            resizeCoreArray(index + 1);
-        }
+    public T set(int index, T element) {
+        Objects.checkIndex(index, this.size);
+        T oldValue = (T) coreArray[index];
         coreArray[index] = element;
-        return element;
+        return oldValue;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public T remove(int index) {
+        if (index > size() || index < 0)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
         throw new UnsupportedOperationException();
     }
 
@@ -207,10 +227,17 @@ public class DIYarrayList<T> implements List<T> {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("DIYarrayList{");
-        sb.append("arrayForList=").append(Arrays.toString(coreArray));
+        Object[] coreArrayForPrint = Arrays.copyOf(this.coreArray, this.size);
+        sb.append("arrayForList=").append(Arrays.toString(coreArrayForPrint));
         sb.append('}');
         return sb.toString();
     }
+
+/*
+    public void trimToSize() {
+
+    }
+*/
 
     /**
      * An optimized version of AbstractList.Itr
