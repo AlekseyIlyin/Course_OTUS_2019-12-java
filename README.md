@@ -1,5 +1,4 @@
 <H1>Домашние работы для курса "Разработчик Java" в OTUS</H1>
-<hr>
 <H8><b>Группа 2019-12</b></H8>
 
 <u>Слушатель</u>:  <i>Алексей Ильин</i>
@@ -16,7 +15,7 @@
   </tr>
   <tr>
     <td align="left">Написать свою реализацию ArrayList на основе массива.</td>
-    <td align="left"><!--<a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw01-maven/L01-maven">L01_maven</a>--></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L02-generic-collections/src/main/java/ru/otus/l03">L02-generic-collections</a></td>
     <td>Ожидает проверку</td>
   </tr>
   
