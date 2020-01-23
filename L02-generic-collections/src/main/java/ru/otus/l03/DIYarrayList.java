@@ -9,18 +9,15 @@ public class DIYarrayList<T> implements List<T> {
     private final int SPARE_CORE_ARRAY_SPACE = 5;
 
     private Object[] coreArray;
-    private int sizeCoreArray;
     private int size;
 
     public DIYarrayList() {
         this.coreArray = new Object[SPARE_CORE_ARRAY_SPACE];
-        this.sizeCoreArray = SPARE_CORE_ARRAY_SPACE;
         this.size = 0;
     }
 
     public DIYarrayList(int size) {
         this.coreArray = new Object[size];
-        this.sizeCoreArray = size;
         this.size = size;
     }
 
@@ -58,7 +55,7 @@ public class DIYarrayList<T> implements List<T> {
     protected transient int modCount = 0;
 
     private void resizeCoreArray(int needSize){
-        if (needSize > this.sizeCoreArray) {
+        if (needSize > this.coreArray.length) {
             coreArray = Arrays.copyOf(coreArray, needSize + SPARE_CORE_ARRAY_SPACE);
         }
         this.size = needSize;
