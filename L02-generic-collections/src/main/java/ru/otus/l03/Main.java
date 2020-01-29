@@ -1,4 +1,4 @@
-package main.java.ru.otus.l03;
+package ru.otus.l03;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,9 +37,9 @@ public class Main {
 
             System.out.println(arrayList.toString());
 
-            for (int indexForFive = 0; indexForFive < SIZE_COLLECTION_FOR_TEST; indexForFive++) {
+            for (int indexForFive = 0; indexForFive + 5 < SIZE_COLLECTION_FOR_TEST; ) { //indexForFive++
                 //Collections.addAll(Collection<? super T> c, T... elements)
-                Collections.addAll(integerDIYarrayList, arrayList.get(indexForFive));
+                Collections.addAll(integerDIYarrayList, arrayList.get(indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive));
             }
             System.out.println(integerDIYarrayList.toString());
             // - test for addAll

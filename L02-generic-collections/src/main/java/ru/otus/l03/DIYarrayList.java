@@ -1,4 +1,4 @@
-package main.java.ru.otus.l03;
+package ru.otus.l03;
 
 import java.util.*;
 import java.util.function.Consumer;
