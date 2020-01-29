@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        final int SIZE_COLLECTION_FOR_TEST = 10000; // кратно 5
+        final int SIZE_COLLECTION_FOR_TEST = 20; // кратно 5
         final int NUM_TESTS = 30;
 
         int sumTimeTests = 0;
@@ -37,9 +37,9 @@ public class Main {
 
             System.out.println(arrayList.toString());
 
-            for (int indexForFive = 0; indexForFive + 5 < SIZE_COLLECTION_FOR_TEST; ) { //indexForFive++
+            for (int indexForFive = 0; indexForFive < SIZE_COLLECTION_FOR_TEST; ) { //indexForFive++
                 //Collections.addAll(Collection<? super T> c, T... elements)
-                Collections.addAll(integerDIYarrayList, arrayList.get(indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive), arrayList.get(++indexForFive));
+                Collections.addAll(integerDIYarrayList, arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++));
             }
             System.out.println(integerDIYarrayList.toString());
             // - test for addAll
