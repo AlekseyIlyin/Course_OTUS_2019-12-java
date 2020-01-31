@@ -30,7 +30,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>dependency</classpathPrefix>
-                            <main-class>main.java.ru.otus.l03.Main</main-class>
+                            <main-class>ru.otus.l03.Main</main-class>
                         </manifest>
                     </archive>
                 </configuration>

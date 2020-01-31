@@ -1,6 +1,7 @@
 package ru.otus.l03;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
@@ -22,6 +23,8 @@ public class Main {
 
         int sumTimeTests = 0;
 
+        final Integer[] integers = new Integer[SIZE_COLLECTION_FOR_TEST];
+
         for (int i = 0; i < 10; i++) {
 
             long startMs = new Date().getTime();
@@ -29,37 +32,28 @@ public class Main {
             // + test for addAll
             System.out.println("AddAll in DIY list:");
             DIYarrayList<Integer> integerDIYarrayList = new DIYarrayList<>();
-
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            for (int index = 0; index < SIZE_COLLECTION_FOR_TEST; index++) {
-                arrayList.add((int) (Math.random() * 100));
-            }
-
-            System.out.println(arrayList.toString());
-
-            for (int indexForFive = 0; indexForFive < SIZE_COLLECTION_FOR_TEST; ) { //indexForFive++
-                //Collections.addAll(Collection<? super T> c, T... elements)
-                Collections.addAll(integerDIYarrayList, arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++), arrayList.get(indexForFive++));
-            }
+            fillIntegerRandomValues(integers);
+            System.out.println(Arrays.toString(integers));
+            Collections.addAll(integerDIYarrayList, integers);
             System.out.println(integerDIYarrayList.toString());
             // - test for addAll
 
             // + test for copy
             //Collections.copy();  static <T> void copy(List<? super T> dest, List<? extends T> src)
             System.out.println("\nCopy in DIY list:");
-            for (int index = 0; index < SIZE_COLLECTION_FOR_TEST; index++) {
-                arrayList.set(index, ((int) (Math.random() * 100)));
-            }
-            System.out.println(arrayList.toString());
+            fillIntegerRandomValues(integers);
+            System.out.println(Arrays.toString(integers));
             integerDIYarrayList = new DIYarrayList<>(SIZE_COLLECTION_FOR_TEST);
-            Collections.copy(integerDIYarrayList, arrayList);
+            ArrayList<Integer> integerArrayList = new ArrayList<>(SIZE_COLLECTION_FOR_TEST);
+            Collections.addAll(integerArrayList, integers);
+            Collections.copy(integerDIYarrayList, integerArrayList);
             System.out.println(integerDIYarrayList.toString());
             // - test for copy
 
             // + test for sort
             //Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
             System.out.println("\nSorted DIY list:");
-            System.out.println(arrayList);
+            System.out.println(integerArrayList);
             Collections.sort(integerDIYarrayList);
             System.out.println(integerDIYarrayList.toString());
             // - test for sort
@@ -68,5 +62,11 @@ public class Main {
         }
 
         System.out.println(String.format("Elapsed average time %d ms, use %d iteration", sumTimeTests / NUM_TESTS, NUM_TESTS));
+    }
+
+    private static void fillIntegerRandomValues(Integer[] randomIntegerArray) {
+        for (int index = 0; index < randomIntegerArray.length; index++) {
+            randomIntegerArray[index] = ((int) (Math.random() * 100));
+        }
     }
 }
