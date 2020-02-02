@@ -1,9 +1,9 @@
 <head>
-<style>
-    .status_ok {
+<!--<style type="text/css">
+    td {
     color: green;
     }
-</style>
+</style>-->
 </head>
 <H1>Домашние работы для курса "Разработчик Java" в OTUS</H1>
 <H8><b>Группа 2019-12</b></H8>
