@@ -1,5 +1,5 @@
 <head>
-<style type="text/css">
+<style>
     .status_ok {
     color: green;
     }
