@@ -26,7 +26,7 @@
   <tr>
     <td align="left">Сравнение разных сборщиков мусора.</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw03-Oracle-GC/L06-gc/src/main/java/ru/otus/l04/bench">L03-Garbage collector</a></td>
-    <td><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw03-Oracle-GC/L06-gc/src/main/java/ru/otus/l04/bench">Выводы</a></td>
+    <td><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/blob/hw03-Oracle-GC/L06-gc/%D0%A1onclusions.md">Выводы</a></td>
     <td>Ожидает проверку</td>
   </tr>
 </table>
