@@ -31,7 +31,13 @@
   <tr>
     <td align="left">Сравнение разных сборщиков мусора.</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L02-generic-collections/src/main/java/ru/otus/l03">L02-generic-collections</a></td>
+    <td>Проверяется</td>
+    <td></td>
+  </tr>
+    <td align="left">Автоматическое логирование.</td>
+    <td align="left"><a href="">L08-Auto-logging</a></td>
     <td>В разработке</td>
     <td></td>
   </tr>
+ 
 </table>
