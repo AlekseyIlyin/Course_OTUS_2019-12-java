@@ -31,9 +31,27 @@
     <td>Сдано</td>
   </tr>
   <tr>
-    <td align="left">Автоматическое логирование.</td>
+    <td align="left">Автоматическое логирование</td>
     <td align="left"><a href="">L08-Auto-logging</a></td>
     <td></td>
     <td>В разработке</td>
   </tr>
+  <tr>
+    <td align="left">Свой тестовый фреймворк</td>
+    <td align="left"><a href=""></a></td>
+    <td></td>
+    <td>В разработке</td>
+  </tr>
+  <tr>
+    <td align="left">Эмулятор банкомата</td>
+    <td align="left"><a href=""></a></td>
+    <td></td>
+    <td>В разработке</td>
+  </tr>
+  <tr>
+    <td align="left">Департамент ATM</td>
+    <td align="left"><a href=""></a></td>
+    <td></td>
+    <td>В разработке</td>
+  </tr>   
 </table>
