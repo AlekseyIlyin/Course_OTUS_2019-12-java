@@ -32,7 +32,7 @@
   </tr>
   <tr>
     <td align="left">Автоматическое логирование</td>
-    <td align="left"><a href="">L08-Auto-logging</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw04-AutoLog/L08-AutoLog">L08-Auto-logging</a></td>
     <td></td>
     <td>В разработке</td>
   </tr>
