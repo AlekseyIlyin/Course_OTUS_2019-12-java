@@ -34,7 +34,7 @@
     <td align="left">Автоматическое логирование</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw04-AutoLog/L08-AutoLog">L08-Auto-logging</a></td>
     <td></td>
-    <td>В разработке</td>
+    <td>Ожидается проверка</td>
   </tr>
   <tr>
     <td align="left">Свой тестовый фреймворк</td>
