@@ -44,9 +44,9 @@
   </tr>
   <tr>
     <td align="left">Эмулятор банкомата</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left">L13-emul-ATM<a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM"></a></td>
     <td></td>
-    <td>В разработке</td>
+    <td>Ожидается проверка</td>
   </tr>
   <tr>
     <td align="left">Департамент ATM</td>
