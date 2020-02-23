@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td align="left">Написать свою реализацию ArrayList на основе массива.</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L02-generic-collections/src/main/java/ru/otus/l03">L02-generic-collections</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L02-generic-collections">L02-generic-collections</a></td>
     <td></td>
     <td>Сдано</td>
   </tr>
@@ -44,7 +44,7 @@
   </tr>
   <tr>
     <td align="left">Эмулятор банкомата</td>
-    <td align="left">L13-emul-ATM<a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM"></a></td>
+    <td align="left">L13-emul-ATM<a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM/src/main/java/ru/otus/l07"></a></td>
     <td></td>
     <td>Ожидается проверка</td>
   </tr>
