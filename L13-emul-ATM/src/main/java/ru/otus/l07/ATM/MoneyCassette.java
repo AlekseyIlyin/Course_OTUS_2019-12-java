@@ -10,7 +10,7 @@ public class MoneyCassette extends MoneyBox {
 
     public MoneyCassette() {
         // crate cells for all banknote
-        name = "Основная кассета";
+        super("Основная кассета");
         for (BanknoteRus banknote : BanknoteRus.values()) {
             box.put(banknote, new CellForMoneyCassette(banknote));
         }

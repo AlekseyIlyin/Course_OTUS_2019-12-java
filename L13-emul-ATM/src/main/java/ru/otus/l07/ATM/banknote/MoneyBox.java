@@ -9,9 +9,16 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public abstract class MoneyBox {
-    protected String name;
+    private String name;
+
+    public MoneyBox(String name) {
+        this.name = name;
+    }
 
     protected final TreeMap<BanknoteRus,BanknotеCell> box = new TreeMap<>();
+
+    protected MoneyBox() {
+    }
 
     public abstract void initialize();
 

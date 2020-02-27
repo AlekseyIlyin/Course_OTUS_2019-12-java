@@ -2,8 +2,6 @@ package ru.otus.l07.ATM;
 
 import ru.otus.l07.ATM.banknote.BanknoteRus;
 import ru.otus.l07.ATM.banknote.MoneyBox;
-import ru.otus.l07.ATM.exceptions.NoMoneyException;
-import ru.otus.l07.ATM.exceptions.NoMoreBanknoteException;
 import ru.otus.l07.ATM.exceptions.NoPlaceBanknoteException;
 
 public class ATM {
@@ -39,14 +37,8 @@ public class ATM {
 
     public void toAcceptMoney() {
         System.out.println(stackBills.getState() + "\nПринимаем купюры в кассету");
-        try {
-            cassette.loadFromOverMoneyBox(stackBills);
-            stackBills.initialize();
-        } catch (NoMoreBanknoteException e) {
-            e.printStackTrace();
-        } catch (NoPlaceBanknoteException e) {
-            e.printStackTrace();
-        }
+        cassette.loadFromOverMoneyBox(stackBills);
+        stackBills.initialize();
     }
 
     public void toGiveOutMoney() {
@@ -57,16 +49,7 @@ public class ATM {
 
     public ATM getMoney(int sum) {
         System.out.println("Получаем сумму в лоток из кассеты: " + sum);
-        try {
-            stackBills = cassette.getBanknotesBySum(sum);
-            toGiveOutMoney();
-        } catch (NoMoneyException e) {
-            e.printStackTrace();
-        } catch (NoPlaceBanknoteException e) {
-            e.printStackTrace();
-        } catch (NoMoreBanknoteException e) {
-            e.printStackTrace();
-        }
+        stackBills = cassette.getBanknotesBySum(sum);
         return this;
     }
 

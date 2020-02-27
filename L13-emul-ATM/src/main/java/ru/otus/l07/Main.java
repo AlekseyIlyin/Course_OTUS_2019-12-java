@@ -5,22 +5,22 @@ import ru.otus.l07.ATM.banknote.BanknoteRus;
 
 public class Main {
     public static void main(String[] args) {
-        ATM ATM = new ATM("ATM #1");
-        ATM.addInStackBills(BanknoteRus.nom_500,10)
+        ATM atm = new ATM("ATM #1");
+        atm.addInStackBills(BanknoteRus.nom_500,10)
             .addInStackBills(BanknoteRus.nom_5000,10)
             .addInStackBills(BanknoteRus.nom_1000,10)
             .addInStackBills(BanknoteRus.nom_50, 10)
             .toAcceptMoney();
-        ATM.printState();
+        atm.printState();
 
-        ATM.addInStackBills(BanknoteRus.nom_50, 50)
+        atm.addInStackBills(BanknoteRus.nom_50, 50)
             .toAcceptMoney();
-        ATM.printState();
+        atm.printState();
 
-        ATM.getMoney(7050)
+        atm.getMoney(7050)
             .toGiveOutMoney();
-        ATM.printState();
+        atm.printState();
 
-        ATM.toAcceptMoney();
+        atm.toAcceptMoney();
     }
 }

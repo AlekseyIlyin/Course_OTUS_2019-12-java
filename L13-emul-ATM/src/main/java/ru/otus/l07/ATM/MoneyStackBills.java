@@ -11,7 +11,7 @@ public class MoneyStackBills extends MoneyBox {
     private int fullness = 0;
 
     public MoneyStackBills() {
-        name = "Лоток для приема/выдачи купюр";
+        super("Лоток для приема/выдачи купюр");
     }
 
     @Override
