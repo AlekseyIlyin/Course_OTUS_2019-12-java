@@ -7,6 +7,16 @@ public class TestLogging implements ClassProxyInterface {
     @Log
     @Override
     public void calculation(int param) {
-
     }
+
+    @Log
+    @Override
+    public void calculation(int param, int param2) {
+    }
+
+    @Log
+    @Override
+    public void calculation(int param, int param2, int param3) {
+    }
+
 }
