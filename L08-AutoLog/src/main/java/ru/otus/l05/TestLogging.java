@@ -9,7 +9,7 @@ public class TestLogging implements ClassProxyInterface {
     public void calculation(int param) {
     }
 
-    @Log
+    //@Log
     @Override
     public void calculation(int param, int param2) {
     }
