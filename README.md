@@ -34,7 +34,7 @@
     <td align="left">Автоматическое логирование</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw04-AutoLog/L08-AutoLog">L08-Auto-logging</a></td>
     <td></td>
-    <td>Ожидается проверка</td>
+    <td>Сдано</td>
   </tr>
   <tr>
     <td align="left">Свой тестовый фреймворк</td>
@@ -46,7 +46,7 @@
     <td align="left">Эмулятор банкомата</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM">L13-emul-ATM</a></td>
     <td></td>
-    <td>Ожидается проверка</td>
+    <td>Сдано</td>
   </tr>
   <tr>
     <td align="left">Департамент ATM</td>
