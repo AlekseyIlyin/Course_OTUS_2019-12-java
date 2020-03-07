@@ -34,6 +34,8 @@
 
     <modules>
         <module>L01-maven</module>
+        <module>L08-AutoLog</module>
+        <module>L10-annotations</module>
     </modules>
 
     <properties>
