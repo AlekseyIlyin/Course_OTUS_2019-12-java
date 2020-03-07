@@ -38,9 +38,9 @@
   </tr>
   <tr>
     <td align="left">Свой тестовый фреймворк</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw05_Annotations/L10-annotations">Тестовый framework (Аннотации)</a></td>
     <td></td>
-    <td>В разработке</td>
+    <td>На проверке</td>
   </tr>
   <tr>
     <td align="left">Эмулятор банкомата</td>
