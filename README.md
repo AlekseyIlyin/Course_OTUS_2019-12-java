@@ -52,6 +52,12 @@
     <td align="left">Департамент ATM</td>
     <td align="left"><a href=""></a></td>
     <td>02.03.2020</td>
-    <td>Разработке</td>
+    <td>Разработка</td>
+  </tr> 
+  <tr>
+    <td align="left">Cвой json object writer</td>
+    <td align="left"><a href=""></a></td>
+    <td>09.03.2020</td>
+    <td>Разработка</td>
   </tr>   
 </table>
