@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <td align="left">Написать свою реализацию ArrayList на основе массива.</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L02-generic-collections/src/main/java/ru/otus/l03">L02-generic-collections</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L02-generic-collections">L02-generic-collections</a></td>
     <td></td>
     <td>Сдано</td>
     <td>23.01.20</td>
@@ -36,7 +36,7 @@
   </tr>
   <tr>
     <td align="left">Автоматическое логирование</td>
-    <td align="left"><a href="">L08-Auto-logging</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw04-AutoLog/L08-AutoLog">L08-Auto-logging</a></td>
     <td></td>
     <td>В разработке</td>
     <td>03.02.20</td>
@@ -50,7 +50,7 @@
   </tr>
   <tr>
     <td align="left">Эмулятор банкомата</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM">L13-emul-ATM</a></td>
     <td></td>
     <td>В разработке</td>
     <td>17.02.20</td>
