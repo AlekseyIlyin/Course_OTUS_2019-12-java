@@ -56,8 +56,8 @@
   </tr> 
   <tr>
     <td align="left">Cвой json object writer</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw08_json_object_writer/L15-json-object-writer">json object writer</a></td>
     <td>09.03.2020</td>
-    <td>Разработка</td>
+    <td>Проверка</td>
   </tr>   
 </table>
