@@ -36,6 +36,7 @@
         <module>L01-maven</module>
         <module>L13-emul-ATM</module>
         <module>L08-AutoLog</module>
+        <module>L15-json-object-writer</module>
     </modules>
 
     <properties>
