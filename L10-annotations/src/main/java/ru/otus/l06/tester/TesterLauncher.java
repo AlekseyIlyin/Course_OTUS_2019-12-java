@@ -1,5 +1,9 @@
 package ru.otus.l06.tester;
 
+import ru.otus.l06.tester.annotations.After;
+import ru.otus.l06.tester.annotations.Before;
+import ru.otus.l06.tester.annotations.Test;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -7,59 +11,61 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TesterLauncher {
+
     private final Set<Method> beforeEachMethods = new HashSet<>();
     private final Set<Method> testMethods = new HashSet<>();
     private final Set<Method> afterEachMethods = new HashSet<>();
-    private Class className;
+    private Class clazz;
     private int failsCounter = 0;
 
-    public static void launchTest(Class classForTest) {
-        TesterLauncher testLauncher = new TesterLauncher();
-        testLauncher.className = classForTest;
-        System.out.println("Test launched from - " + classForTest.getSimpleName());
+    public TesterLauncher(Class className) {
+        this.clazz = className;
+    }
 
-        final var declaredMethods = classForTest.getDeclaredMethods();
+    public TestResult run() {
+        System.out.println("Test launched from - " + clazz.getSimpleName());
+
+        final var declaredMethods = clazz.getDeclaredMethods();
         for (Method method :
                 declaredMethods) {
             for (Annotation annotation :
                     method.getDeclaredAnnotations()) {
-                switch (annotation.annotationType().getSimpleName()) {
-                    case "Before":
-                        testLauncher.beforeEachMethods.add(method);
-                        break;
-                    case "Test":
-                        testLauncher.testMethods.add(method);
-                        break;
-                    case "After":
-                        testLauncher.afterEachMethods.add(method);
-                        break;
+                Class<? extends Annotation> aClass = annotation.annotationType();
+                if (aClass == Before.class) {
+                    beforeEachMethods.add(method);
+                } else if (aClass == Test.class) {
+                    testMethods.add(method);
+                } else if (aClass == After.class) {
+                    afterEachMethods.add(method);
                 }
             }
         }
 
-        if (!testLauncher.testMethods.isEmpty())
-            runTests(testLauncher);
+        if (!testMethods.isEmpty())
+            runTests();
         else
             System.out.println("Class doesn't contains @Test methods!");
+
+        return new TestResult(failsCounter, testMethods.size() - failsCounter, testMethods.size());
     }
 
-    private static void runTests(TesterLauncher testLauncher) {
-        for (Method method : testLauncher.testMethods) {
+    private void runTests() {
+        for (Method method : testMethods) {
             try {
-                final var constructor = testLauncher.className.getConstructor();
+                final var constructor = clazz.getConstructor();
                 final var newInstance = constructor.newInstance();
 
-                if (!runBeforeEach(newInstance, testLauncher))
+                if (!runBeforeEach(newInstance))
                     break;
                 try {
                     System.out.println("Test for " + method.getName());
                     method.invoke(newInstance);
                 } catch (InvocationTargetException error) {
                     error.getTargetException().printStackTrace();
-                    testLauncher.failsCounter++;
+                    failsCounter++;
                 }
 
-                for (Method afterEachMethods : testLauncher.afterEachMethods) {
+                for (Method afterEachMethods : afterEachMethods) {
                     afterEachMethods.invoke(newInstance);
                 }
             } catch (NoSuchMethodException | IllegalAccessException |
@@ -67,21 +73,19 @@ public class TesterLauncher {
                 e.printStackTrace();
             }
         }
-
-        showResults(testLauncher);
     }
 
-    private static boolean runBeforeEach(Object newInstance, TesterLauncher testLauncher) {
+    private boolean runBeforeEach(Object newInstance) {
         try {
-            for (Method beforeEachMethods : testLauncher.beforeEachMethods) {
+            for (Method beforeEachMethods : beforeEachMethods) {
                 beforeEachMethods.invoke(newInstance);
             }
         } catch (InvocationTargetException exc) {
             System.err.println("Error when @BeforeEach:");
             exc.getTargetException().printStackTrace();
-            testLauncher.failsCounter = testLauncher.testMethods.size();
+            failsCounter = testMethods.size();
 
-            for (Method afterEachMethods : testLauncher.afterEachMethods) {
+            for (Method afterEachMethods : afterEachMethods) {
                 try {
                     afterEachMethods.invoke(newInstance);
                 } catch (IllegalAccessException | InvocationTargetException e) {
@@ -98,14 +102,23 @@ public class TesterLauncher {
         return true;
     }
 
-    private static void showResults(TesterLauncher testLauncher) {
-        System.out.println();
+    public class TestResult {
+        private int failed;
+        private int passed;
+        private int tests;
 
-        System.out.println("*************Test results**************");
-        System.out.println(String.format("*Tests failed: %d, passed: %d of %d tests*"
-                , testLauncher.failsCounter, testLauncher.testMethods.size() - testLauncher.failsCounter
-                , testLauncher.testMethods.size()));
-        System.out.println("***************************************");
+        public TestResult(int failed, int passed, int tests) {
+            this.failed = failed;
+            this.passed = passed;
+            this.tests = tests;
+        }
+
+        public void showResults() {
+            System.out.println();
+            System.out.println("*************Test results**************");
+            System.out.println(String.format("*Tests failed: %d, passed: %d of %d tests*" ,failed, passed, tests));
+            System.out.println("***************************************");
+        }
     }
 
 }

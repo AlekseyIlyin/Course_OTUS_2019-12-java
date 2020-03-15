@@ -1,6 +1,6 @@
 package ru.otus.l06;
 
-public class BitShifter {
+public class BitShifterTests {
     public int shiftRight(int x) {
         return x >> 1;
     }
