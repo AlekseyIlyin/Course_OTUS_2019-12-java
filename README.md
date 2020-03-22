@@ -30,34 +30,54 @@
     <td>30.01.2020</td>
     <td>Сдано</td>
   </tr>
+   
   <tr>
     <td align="left">Автоматическое логирование</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw04-AutoLog/L08-AutoLog">L08-Auto-logging</a></td>
     <td>03.02.2020</td>
     <td>Сдано</td>
   </tr>
+   
   <tr>
     <td align="left">Свой тестовый фреймворк</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw05_Annotations/L10-annotations">Тестовый framework (Аннотации)</a></td>
     <td>10.02.2020</td>
-    <td>Проверка</td>
+    <td>Сдано</td>
   </tr>
+   
   <tr>
     <td align="left">Эмулятор банкомата</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM">L13-emul-ATM</a></td>
     <td>17.02.2020</td>
     <td>Сдано</td>
   </tr>
+   
   <tr>
     <td align="left">Департамент ATM</td>
     <td align="left"><a href=""></a></td>
     <td>02.03.2020</td>
-    <td>Разработка</td>
-  </tr> 
+    <td>Проверка</td>
+  </tr>
+   
   <tr>
     <td align="left">Cвой json object writer</td>
     <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw08_json_object_writer/L15-json-object-writer">json object writer</a></td>
     <td>09.03.2020</td>
     <td>Проверка</td>
-  </tr>   
+  </tr> 
+   
+  <tr>
+    <td align="left">Самодельный ORM</td>
+    <td align="left"><a href=""></a></td>
+    <td>16.03.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
+  <tr>
+    <td align="left">Использование Hibernate</td>
+    <td align="left"><a href=""></a></td>
+    <td>23.03.2020</td>
+    <td>Разработка</td>
+  </tr> 
+   
 </table>
