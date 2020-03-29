@@ -2,7 +2,7 @@ package ru.otus.l08;
 
 import com.google.gson.Gson;
 import ru.otus.l08.diyGson.DiyGson;
-
+//
 
 public class GsonDemo {
     public static void main(String[] args) {
