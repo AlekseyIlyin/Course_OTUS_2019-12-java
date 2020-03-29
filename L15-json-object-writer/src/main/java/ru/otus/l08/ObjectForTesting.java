@@ -1,7 +1,7 @@
 package ru.otus.l08;
 
 import java.util.*;
-
+//
 public class ObjectForTesting {
   private final int value1;
   private final String value2;
