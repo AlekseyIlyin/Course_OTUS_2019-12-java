@@ -37,6 +37,7 @@
         <module>L13-emul-ATM</module>
         <module>L08-AutoLog</module>
         <module>L15-json-object-writer</module>
+        <module>L17-homemade-ORM</module>
     </modules>
 
     <properties>
@@ -54,6 +55,21 @@
                 <artifactId>guava</artifactId>
                 <version>${com.google.guava.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>1.7.21</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.21</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -68,6 +84,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-maven-plugin</artifactId>
+                    <version>${lombok-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
