@@ -34,8 +34,10 @@
 
     <modules>
         <module>L01-maven</module>
-        <module>L13-emul-ATM</module>
+        <module>L02-generic-collections</module>
+        <module>L06-gc</module>
         <module>L08-AutoLog</module>
+        <module>L11-emul-ATM</module>
         <module>L15-json-object-writer</module>
         <module>L17-homemade-ORM</module>
     </modules>
