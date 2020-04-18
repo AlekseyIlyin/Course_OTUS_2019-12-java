@@ -39,38 +39,38 @@
   </tr>
    
   <tr>
-    <td align="left">Свой тестовый фреймворк</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw05_Annotations/L10-annotations">Тестовый framework (Аннотации)</a></td>
+    <td align="left">Свой тестовый фреймворк (Аннотации)</td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw05_Annotations/L10-annotations">L10-annotations</a></td>
     <td>10.02.2020</td>
     <td>Сдано</td>
   </tr>
    
   <tr>
     <td align="left">Эмулятор банкомата</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw06_emulATM/L13-emul-ATM">L13-emul-ATM</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L11-emul-ATM">L11-emul-ATM</a></td>
     <td>17.02.2020</td>
     <td>Сдано</td>
   </tr>
    
   <tr>
     <td align="left">Департамент ATM</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L13-department-ATM">Департамент ATM</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L13-department-ATM">L13-department-ATM</a></td>
     <td>02.03.2020</td>
     <td>Сдано</td>
   </tr>
    
   <tr>
     <td align="left">Cвой json object writer</td>
-    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw08_json_object_writer/L15-json-object-writer">json object writer</a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/hw08_json_object_writer/L15-json-object-writer">Д15 JSON object writer</a></td>
     <td>09.03.2020</td>
     <td>Сдано</td>
   </tr> 
    
   <tr>
     <td align="left">Самодельный ORM</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L17-homemade-ORM">L17-homemade-ORM</a></td>
     <td>16.03.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
   <tr>
@@ -80,4 +80,38 @@
     <td>Разработка</td>
   </tr> 
    
+  <tr>
+    <td align="left">Свой cache engine</td>
+    <td align="left"><a href=""></a></td>
+    <td>30.03.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
+  <tr>
+    <td align="left">Веб сервер</td>
+    <td align="left"><a href=""></a></td>
+    <td>02.04.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
+  <tr>
+    <td align="left">Приложение с IoC контейнером</td>
+    <td align="left"><a href=""></a></td>
+    <td>16.04.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
+  <tr>
+    <td align="left">Последовательность чисел</td>
+    <td align="left"><a href=""></a></td>
+    <td>20.04.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
+  <tr>
+    <td align="left">MessageSystem</td>
+    <td align="left"><a href=""></a></td>
+    <td>27.04.2020</td>
+    <td>Разработка</td>
+  </tr> 
 </table>
