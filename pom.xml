@@ -40,6 +40,7 @@
         <module>L11-emul-ATM</module>
         <module>L15-json-object-writer</module>
         <module>L17-homemade-ORM</module>
+        <module>L27-jmm-sequence-of-numbers</module>
     </modules>
 
     <properties>
