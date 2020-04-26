@@ -40,14 +40,34 @@
         <module>L11-emul-ATM</module>
         <module>L15-json-object-writer</module>
         <module>L17-homemade-ORM</module>
+        <module>L19-hibernate</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <my.variable>45</my.variable>
+
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>13</maven.compiler.target>
+
         <com.google.guava.version>27.1-jre</com.google.guava.version>
-        <my.variable>42</my.variable>
+
+        <hibernate-core.version>5.4.4.Final</hibernate-core.version>
+        <h2-version>1.4.197</h2-version>
+
+        <logback-classic-version>1.2.3</logback-classic-version>
+
+        <lombok-version>1.18.12</lombok-version>
+        <lombok.verbose>true</lombok.verbose>
+        <lombok.addOutputDirectory>false</lombok.addOutputDirectory>
+        <lombok.sourceDirectory>${project.basedir}/src/main/java</lombok.sourceDirectory>
+        <lombok.testSourceDirectory>${project.basedir}/src/test/java</lombok.testSourceDirectory>
+
+        <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <mockito-core.version>3.1.0</mockito-core.version>
+
+        <junit.version>4.12</junit.version>
+        <assertj-core.version>3.13.2</assertj-core.version>
     </properties>
 
     <dependencyManagement>
@@ -72,6 +92,39 @@
                 <artifactId>log4j</artifactId>
                 <version>1.2.17</version>
             </dependency>
+
+            <!--region Test dependencies - JUnit Jupiter, AssertJ, Hamcrest, Mockito -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit.jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.jupiter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <scope>test</scope>
+                <version>${assertj-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <scope>test</scope>
+                <version>${mockito-core.version}</version>
+            </dependency>
+            <!--endregion-->
+
         </dependencies>
     </dependencyManagement>
 
