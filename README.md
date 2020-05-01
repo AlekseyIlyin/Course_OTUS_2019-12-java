@@ -103,9 +103,9 @@
   
   <tr>
     <td align="left">Последовательность чисел</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L27-jmm-sequence-of-numbers">L27-jmm-sequence-of-numbers</a></td>
     <td>20.04.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
   <tr>
