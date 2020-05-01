@@ -42,6 +42,7 @@
         <module>L17-homemade-ORM</module>
         <module>L19-hibernate</module>
         <module>L21-cache</module>
+        <module>L27-jmm-sequence-of-numbers</module>
     </modules>
 
     <properties>
