@@ -75,9 +75,9 @@
   
   <tr>
     <td align="left">Использование Hibernate</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L19-hibernate">L19-hibernate</a></td>
     <td>23.03.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
    
   <tr>
@@ -114,4 +114,12 @@
     <td>27.04.2020</td>
     <td>Разработка</td>
   </tr> 
+  
+  <tr>
+    <td align="left">MessageServer</td>
+    <td align="left"><a href=""></a></td>
+    <td>14.05.2020</td>
+    <td>Разработка</td>
+  </tr> 
+  
 </table>
