@@ -41,6 +41,7 @@
         <module>L15-json-object-writer</module>
         <module>L17-homemade-ORM</module>
         <module>L19-hibernate</module>
+        <module>L21-cache</module>
     </modules>
 
     <properties>

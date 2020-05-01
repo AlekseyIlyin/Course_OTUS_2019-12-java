@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ObjectDaoHibernateTest extends AbstractHibernateTest {
 
   private SessionManagerHibernate sessionManagerHibernate;
-  private ObjectDaoHibernate userDaoHibernate;
+  private ObjectDaoHibernate<User> userDaoHibernate;
 
   @BeforeEach
   @Override

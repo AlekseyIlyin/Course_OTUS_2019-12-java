@@ -19,9 +19,10 @@ public class SessionManagerHibernate implements SessionManager {
   }
 
   @Override
-  public void beginSession() {
+  public Session beginSession() {
     try {
       databaseSession = new DatabaseSessionHibernate(sessionFactory.openSession());
+      return getCurrentSession().getHibernateSession();
     } catch (Exception e) {
       throw new SessionManagerException(e);
     }

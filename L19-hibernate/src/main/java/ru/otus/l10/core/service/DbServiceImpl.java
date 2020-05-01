@@ -7,7 +7,7 @@ import ru.otus.l10.core.dao.DaoTemplate;
 import java.util.Optional;
 
 public class DbServiceImpl<T> implements DBService<T> {
-  private static Logger logger = LoggerFactory.getLogger(DbServiceImpl.class);
+  private final static Logger logger = LoggerFactory.getLogger(DbServiceImpl.class);
 
   private final DaoTemplate<T> objectDao;
 

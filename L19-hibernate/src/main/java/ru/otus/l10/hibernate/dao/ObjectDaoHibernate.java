@@ -12,7 +12,7 @@ import ru.otus.l10.hibernate.sessionmanager.SessionManagerHibernate;
 import java.util.Optional;
 
 public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
-  private static Logger logger = LoggerFactory.getLogger(ObjectDaoHibernate.class);
+  private final static Logger logger = LoggerFactory.getLogger(ObjectDaoHibernate.class);
   private final SessionManagerHibernate sessionManager;
 
   public ObjectDaoHibernate(SessionManagerHibernate sessionManager) {
@@ -21,28 +21,21 @@ public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
 
   @Override
   public Optional<T> findById(long id, Class<T> clazz) {
-    sessionManager.beginSession();
-    DatabaseSessionHibernate currentSession = sessionManager.getCurrentSession();
-    try {
-      final var object = currentSession.getHibernateSession().find(clazz, id);
+    try (Session currentSession = sessionManager.beginSession()) {
+      final var object = currentSession.find(clazz, id);
       sessionManager.commitSession();
       return Optional.ofNullable(object);
     } catch (Exception e) {
       sessionManager.rollbackSession();
       logger.error(e.getMessage(), e);
-    } finally {
-      sessionManager.close();
     }
     return Optional.empty();
   }
 
   @Override
   public long saveObject(T object) {
-    sessionManager.beginSession();
     ModelDb objectUser = (ModelDb) object;
-    DatabaseSessionHibernate currentSession = sessionManager.getCurrentSession();
-    try {
-      Session hibernateSession = currentSession.getHibernateSession();
+    try (Session hibernateSession = sessionManager.beginSession()) {
       if (objectUser.getId() > 0) {
         hibernateSession.merge(object);
       } else {
@@ -52,8 +45,6 @@ public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
     } catch (Exception e) {
       sessionManager.rollbackSession();
       throw new DaoException(e);
-    } finally {
-      sessionManager.close();
     }
     return objectUser.getId();
   }
