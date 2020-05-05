@@ -3,6 +3,7 @@ package ru.otus.hibernate.dao;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.otus.cachehw.HwCache;
 import ru.otus.cachehw.MyCache;
 import ru.otus.core.dao.DaoException;
 import ru.otus.core.dao.DaoTemplate;
@@ -16,7 +17,7 @@ public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
   private final static Logger logger = LoggerFactory.getLogger(ObjectDaoHibernate.class);
   private final SessionManagerHibernate sessionManager;
   private final boolean useCache;
-  private final MyCache<Long, T> cacheUser = new MyCache<>();
+  private final HwCache<String, T> cacheUser = new MyCache<>();
 
   public ObjectDaoHibernate(SessionManagerHibernate sessionManager, boolean useCache) {
     this.sessionManager = sessionManager;
@@ -29,11 +30,11 @@ public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
   }
 
   private void addCacheObject(long id, T object) {
-    cacheUser.put(id, object);
+    cacheUser.put(Long.toString(id), object);
   }
 
   private T getObjectFromCache(long id) {
-    return cacheUser.get(id);
+    return cacheUser.get(Long.toString(id));
   }
 
   @Override
@@ -69,6 +70,9 @@ public class ObjectDaoHibernate<T> implements DaoTemplate<T> {
         hibernateSession.persist(object);
       }
       sessionManager.commitSession();
+      if (useCache) {
+        addCacheObject(objectUser.getId(), object);
+      }
     } catch (Exception e) {
       sessionManager.rollbackSession();
       throw new DaoException(e);

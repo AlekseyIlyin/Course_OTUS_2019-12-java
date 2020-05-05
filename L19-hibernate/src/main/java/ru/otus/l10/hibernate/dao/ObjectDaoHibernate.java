@@ -7,7 +7,6 @@ import ru.otus.l10.core.dao.DaoTemplate;
 import ru.otus.l10.core.dao.DaoException;
 import ru.otus.l10.core.model.ModelDb;
 import ru.otus.l10.core.sessionmanager.SessionManager;
-import ru.otus.l10.hibernate.sessionmanager.DatabaseSessionHibernate;
 import ru.otus.l10.hibernate.sessionmanager.SessionManagerHibernate;
 import java.util.Optional;
 
