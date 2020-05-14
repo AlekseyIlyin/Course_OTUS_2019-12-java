@@ -89,9 +89,9 @@
   
   <tr>
     <td align="left">Веб сервер</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L23-web-server">L23-web-server</a></td>
     <td>02.04.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
   <tr>
