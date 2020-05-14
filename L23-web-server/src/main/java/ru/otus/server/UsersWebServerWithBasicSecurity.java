@@ -9,9 +9,7 @@ import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.security.Constraint;
-import ru.otus.dao.DaoTemplate;
 import ru.otus.dao.UserDao;
-import ru.otus.model.User;
 import ru.otus.services.TemplateProcessor;
 
 import java.util.ArrayList;
