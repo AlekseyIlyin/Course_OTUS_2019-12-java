@@ -1,22 +1,15 @@
 package ru.otus.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
+@NoArgsConstructor
 @Data
-@Entity
-@Table(name = "phones")
 public class PhoneDataSet {
+    private String id;
+    private String number;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-
-    @ManyToOne
-    @JoinColumn(name = "users_id")
-    private User user;
-
-    private final String number;
+    public PhoneDataSet(String number) {
+        this.number = number;
+    }
 }

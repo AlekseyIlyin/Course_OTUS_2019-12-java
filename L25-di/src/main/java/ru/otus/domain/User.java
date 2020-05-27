@@ -1,38 +1,28 @@
 package ru.otus.domain;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Data
-@Entity
-@Table(name = "users")
 public class User {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
-
-  @Column(name = "name")
+  private String id;
   private String name;
-  @Column(name = "login")
+
   private String login;
-  @Column(name = "password")
   private String password;
 
-  @Column(name = "age")
   private int age;
-
-  @OneToOne(cascade = CascadeType.ALL, targetEntity = AddressDataSet.class)
-  @JoinColumn(name = "addresses_id")
   private AddressDataSet address;
-
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
   private List<PhoneDataSet> phones = new ArrayList<>();
+
+  public User() {
+    phones = new ArrayList<>();
+  }
 
   public User(String name, int age, String address) {
     this.name = name;
@@ -56,6 +46,14 @@ public class User {
 
   public void addPhone(String phoneNumber) {
     phones.add(new PhoneDataSet(phoneNumber));
+  }
+
+  public String getLogin() {
+    return login;
+  }
+
+  public String getPassword() {
+    return password;
   }
 
 }

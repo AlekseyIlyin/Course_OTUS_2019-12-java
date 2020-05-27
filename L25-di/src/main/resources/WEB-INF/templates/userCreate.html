@@ -28,8 +28,12 @@
     <h1>New User:</h1>
 
     <div class="row">
-        <label for="holder-input">Name:</label>
-        <input id="holder-input" name="name" type="text" th:value="${user.name}" value="John Doe"/>
+        <label for="holder-input-name">Name:</label>
+        <input id="holder-input-name" name="name" type="text" th:value="${user.name}"/>
+        <label for="holder-input-name">Login:</label>
+        <input id="holder-input-login" name="login" type="text" th:value="${user.login}"/>
+        <label for="holder-input-password">Password:</label>
+        <input id="holder-input-password" name="password" type="text" th:value="${user.password}"/>
     </div>
 
     <div class="row">

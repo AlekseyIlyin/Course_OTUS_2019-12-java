@@ -21,7 +21,6 @@
 
     <style th:inline="text">
         h3 {
-            background: url([[@{/listmark.png}]]) no-repeat;
             padding: 2px;
             padding-left: 30px;
         }
@@ -35,20 +34,20 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Login</th>
+                <th>Password</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="user : ${users}">
-                <td th:text="${user.id}">1</td>
-                <td th:text="${user.name}">John Doe</td>
-                <td th:text="${user.login}">John Doe</td>
-                <td th:text="${user.password}">John Doe</td>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.login}"></td>
+                <td th:text="${user.password}"></td>
             </tr>
         </tbody>
     </table>
     <a th:href="@{/user/create}" href="userCreate.html">New user</a>
-
-    <br/><br/>
 
 </body>
 </html>

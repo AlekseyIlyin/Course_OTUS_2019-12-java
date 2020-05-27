@@ -1,23 +1,15 @@
 package ru.otus.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
+@NoArgsConstructor
 @Data
-@Entity
-@Table(name = "addresses")
 public class AddressDataSet{
+    private String id;
+    private String street;
+
     public AddressDataSet(String street) {
         this.street = street;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-
-    @Column(name = "street")
-    private String street;
-
 }

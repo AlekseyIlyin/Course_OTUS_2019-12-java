@@ -3,14 +3,10 @@ package ru.otus.repostory;
 import ru.otus.domain.User;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface UserRepository {
-    Long saveUser(User object);
+public interface UserRepository {//extends MongoRepository<User, String>{
 
-    Optional<User> getUser(long id);
+    List<User> findAll();
 
-    List<User> getAll();
-
-    Optional<User> findByLogin(String login);
+    String create(String name, String login, String password);
 }

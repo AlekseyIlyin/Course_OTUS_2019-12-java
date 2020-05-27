@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping({"/", "/user/list"})
     public String userListView(Model model) {
-        List<User> users = repository.getAll();
+        List<User> users = repository.findAll();
         model.addAttribute("users", users);
         return "userList.html";
     }
@@ -35,7 +35,7 @@ public class UserController {
 
     @PostMapping("/user/save")
     public RedirectView userSave(@ModelAttribute User user) {
-        repository.saveUser(user); //user.getName(),user.getLogin(),user.getPassword());
+        repository.create(user.getName(),user.getLogin(),user.getPassword());
         return new RedirectView("/user/list", true);
     }
 
