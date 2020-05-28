@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.otus.domain.User;
-import ru.otus.repostory.UserRepository;
+import ru.otus.repository.UserRepository;
 
 import java.util.List;
 
