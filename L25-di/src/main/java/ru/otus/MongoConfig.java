@@ -2,24 +2,20 @@ package ru.otus;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import ru.otus.repository.MongoInitDb;
+import ru.otus.repository.MongoDbInitializer;
 import ru.otus.repository.UserRepository;
 
 @Configuration
-@ComponentScan(basePackages = { "ru.otus.**" })
+@ComponentScan
 @PropertySource("classpath:app.properties")
 public class MongoConfig {
-  @Autowired
-  private Environment env;
 
   @Value("${mongo.url}")
   private String hostDb;
@@ -45,8 +41,8 @@ public class MongoConfig {
   }
 
   @Bean(initMethod = "init")
-  public MongoInitDb createMongoDbInitializer(UserRepository userRepository) {
-    return new MongoInitDb(new MongoTemplate(getMongoClient(hostDb), dbName));
+  public MongoDbInitializer createMongoDbInitializer(UserRepository userRepository) {
+    return new MongoDbInitializer(new MongoTemplate(getMongoClient(hostDb), dbName));
   }
 
 

@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import ru.otus.domain.User;
 
 @Service
-public class MongoInitDb {
+public class MongoDbInitializer {
 
     private static final String COLLECTION_NAME_USER = "users";
 
     private final MongoOperations mongoOperations;
 
-    public MongoInitDb(MongoOperations mongoOperations) {
+    public MongoDbInitializer(MongoOperations mongoOperations) {
         this.mongoOperations = mongoOperations;
     }
 
