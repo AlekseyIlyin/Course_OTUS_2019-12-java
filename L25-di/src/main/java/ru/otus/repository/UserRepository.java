@@ -1,10 +1,10 @@
-package ru.otus.repostory;
+package ru.otus.repository;
 
 import ru.otus.domain.User;
 
 import java.util.List;
 
-public interface UserRepository {//extends MongoRepository<User, String>{
+public interface UserRepository {
 
     List<User> findAll();
 

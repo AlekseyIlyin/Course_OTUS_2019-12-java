@@ -2,24 +2,30 @@ package ru.otus;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import ru.otus.repository.MongoInitDb;
+import ru.otus.repository.UserRepository;
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = { "ru.otus.**" })
+@PropertySource("classpath:app.properties")
 public class MongoConfig {
-  private static final String CONFIG_NAME = "realm.properties";
-  private static final String MONGO_HOST = "mongodb://localhost:27017";
-  private static final String MONGO_DB_NAME = "users_db";
+  @Autowired
+  private Environment env;
 
-  private String mongoEnv;
+  @Value("${mongo.url}")
+  private String hostDb;
+
+  @Value("${mongo.dbName}")
+  private String dbName;
 
   @Bean
   public MongoClient getMongoClient(String url) {
@@ -27,39 +33,20 @@ public class MongoConfig {
   }
 
   @Bean
-  public MongoTemplate mongoTemplate() {
-/*
-    Properties dbProperties = getDbProperties();
-    String hostDb = null;
-    String dbName = null;
-    if (dbProperties != null) {
-      hostDb = dbProperties.getProperty("MongoURL");
-      dbName = dbProperties.getProperty("MongoDbName");
-    } else {
-*/
-    String hostDb = MONGO_HOST;
-    String dbName = MONGO_DB_NAME;
-//    }
+  public MongoOperations mongoOperations() {
 
-    MongoTemplate mongoTemplate = null;
+    MongoOperations mongoOperations = null;
     try {
-      mongoTemplate = new MongoTemplate(getMongoClient(hostDb), dbName);
+      mongoOperations = new MongoTemplate(getMongoClient(hostDb), dbName);
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return mongoTemplate;
+    return mongoOperations;
   }
 
-  private Properties getDbProperties() {
-    ClassLoader classLoader = MongoConfig.class.getClassLoader();
-    File file = new File(classLoader.getResource(CONFIG_NAME).getFile());
-    Properties properties = new Properties();
-          try (FileInputStream fileInputStream = new FileInputStream(file)) {
-            properties.load(fileInputStream);
-          } catch (IOException e) {
-            properties = null;
-          }
-    return properties;
+  @Bean(initMethod = "init")
+  public MongoInitDb createMongoDbInitializer(UserRepository userRepository) {
+    return new MongoInitDb(new MongoTemplate(getMongoClient(hostDb), dbName));
   }
 
 
