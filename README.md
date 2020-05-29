@@ -96,9 +96,9 @@
   
   <tr>
     <td align="left">Приложение с IoC контейнером</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L25-di">L25-di</a></td>
     <td>16.04.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
   <tr>
