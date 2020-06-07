@@ -46,6 +46,7 @@
         <module>L23-web-server</module>
         <module>L25-di</module>
         <module>L27-jmm-sequence-of-numbers</module>
+        <module>L28-messagingSystem</module>
     </modules>
 
     <properties>
