@@ -110,9 +110,9 @@
   
   <tr>
     <td align="left">MessageSystem</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L28-messagingSystem">L28-Message-system</a></td>
     <td>27.04.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
   <tr>
