@@ -7,8 +7,7 @@ import ru.otus.Serializers;
 import ru.otus.service.handlers.CreateUserRequestHandler;
 import ru.otus.service.handlers.GetUsersRequestHandler;
 import ru.otus.front.FrontendService;
-import ru.otus.front.handlers.CreateUserResponseHandler;
-import ru.otus.front.handlers.GetUsersResponseHandler;
+import ru.otus.front.UsersResponseHandler;
 import ru.otus.messagesystem.MessageSystem;
 import ru.otus.messagesystem.MessageType;
 import ru.otus.messagesystem.MsClient;
@@ -42,8 +41,9 @@ public class MessageSystemConfig {
             , FrontendService frontendService) {
         MsClient frontendMsClient = new MsClientImpl(serializer, FRONTEND_SERVICE_CLIENT_NAME, messageSystem);
 
-        frontendMsClient.addHandler(MessageType.USER_DATA, new GetUsersResponseHandler(serializer, frontendService));
-        frontendMsClient.addHandler(MessageType.CREATE_USER, new CreateUserResponseHandler(serializer, frontendService));
+        UsersResponseHandler usersResponseHandler = new UsersResponseHandler(serializer, frontendService);
+        frontendMsClient.addHandler(MessageType.USER_DATA, usersResponseHandler);
+        frontendMsClient.addHandler(MessageType.CREATE_USER, usersResponseHandler);
         messageSystem.addClient(frontendMsClient);
 
         return frontendMsClient;

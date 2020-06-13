@@ -1,9 +1,9 @@
-package ru.otus.configs;
+package ru.otus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "ru.otus")
+@SpringBootApplication
 public class SpringWebApplication {
 
     public static void main(String[] args) {

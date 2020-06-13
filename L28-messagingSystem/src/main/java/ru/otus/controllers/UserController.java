@@ -1,16 +1,16 @@
 package ru.otus.controllers;
 
-import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.otus.domain.User;
 import ru.otus.front.FrontendService;
 
-@Controller
+@RestController
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     private final SimpMessagingTemplate messagingTemplate;
@@ -22,8 +22,9 @@ public class UserController {
     }
 
     @MessageMapping("/add")
-    public void getMessage(String user) {
-        final var userFromJson = new Gson().fromJson(user, User.class);
+    public void getMessage(@RequestParam(value = "user") User user) {
+        final var userFromJson = user;
+
         frontendService.createUser(s -> {
             if ( !s.isEmpty() )
                 frontendService.getUsersData(users ->

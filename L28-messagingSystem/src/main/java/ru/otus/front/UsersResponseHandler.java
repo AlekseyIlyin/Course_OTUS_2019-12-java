@@ -1,30 +1,28 @@
-package ru.otus.front.handlers;
+package ru.otus.front;
 
-import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.otus.Serializers;
-import ru.otus.front.FrontendService;
 import ru.otus.messagesystem.Message;
 import ru.otus.messagesystem.RequestHandler;
 
 import java.util.Optional;
 import java.util.UUID;
-import java.util.logging.Level;
 
-public class CreateUserResponseHandler implements RequestHandler {
-    private static final Logger logger = LoggerFactory.getLogger(GetUsersResponseHandler.class);
+public class UsersResponseHandler implements RequestHandler {
+    private static final Logger logger = LoggerFactory.getLogger(UsersResponseHandler.class);
     private final Serializers serializer;
     private final FrontendService frontendService;
 
-    public CreateUserResponseHandler(Serializers serializer, FrontendService frontendService) {
+    public UsersResponseHandler(Serializers serializer, FrontendService frontendService) {
         this.serializer = serializer;
         this.frontendService = frontendService;
     }
 
     @Override
     public Optional<Message> handle(Message msg) {
-        logger.info("new message create:{}", msg);
+        logger.info("new message:{}", msg);
+
         try {
             String userData = serializer.deserialize(msg.getPayload(), String.class);
             UUID sourceMessageId = msg.getSourceMessageId().orElseThrow(() -> new RuntimeException("Not found sourceMsg for message:" + msg.getId()));

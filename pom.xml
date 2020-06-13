@@ -47,6 +47,7 @@
         <module>L25-di</module>
         <module>L27-jmm-sequence-of-numbers</module>
         <module>L28-messagingSystem</module>
+        <module>L30-message-server</module>
     </modules>
 
     <properties>

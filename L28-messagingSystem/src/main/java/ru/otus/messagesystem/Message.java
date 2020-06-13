@@ -49,6 +49,7 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
+                "type=" + type +
                 "id=" + id +
                 ", from='" + from + '\'' +
                 ", to='" + to + '\'' +
