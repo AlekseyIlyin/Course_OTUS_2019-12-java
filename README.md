@@ -117,9 +117,9 @@
   
   <tr>
     <td align="left">MessageServer</td>
-    <td align="left"><a href=""></a></td>
+    <td align="left"><a href="https://github.com/AlekseyIlyin/2019-12-otus-java-ilyin/tree/master/L30-message-server">L30-Message-server</a></td>
     <td>14.05.2020</td>
-    <td>Разработка</td>
+    <td>Сдано</td>
   </tr> 
   
 </table>
