@@ -10,6 +10,7 @@ import ru.otus.db.DbTemplate;
 import ru.otus.db.MongoTemplateImpl;
 import ru.otus.domain.dao.DaoTemplate;
 import ru.otus.domain.dao.UserDao;
+import ru.otus.exceptions.ParametersLoadException;
 import ru.otus.handlers.UserRequestHandler;
 import ru.otus.messagesystem.MessageType;
 import ru.otus.messagesystem.MsClientImpl;
@@ -17,7 +18,6 @@ import ru.otus.messagesystem.RequestHandler;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Properties;
@@ -30,19 +30,27 @@ public class DatabaseClient {
 
     private final Properties properties;
 
-    private static MongoClient mongoClient;
-    private static MongoDatabase database;
+    private MongoClient mongoClient;
+    private MongoDatabase database;
 
-    private static DbTemplate dbTemplateImpl;
+    private DbTemplate dbTemplateImpl;
     private DaoTemplate userDao;
 
 
-    public DatabaseClient() {
-        this.properties = getProperties();
+    public DatabaseClient() throws Exception{
+        try {
+            this.properties = getProperties();
+        } catch (ParametersLoadException e) {
+            throw new Exception();
+        }
     }
 
     public static void main(String[] args) {
-        new DatabaseClient().connectToMessageServer();
+        try {
+            new DatabaseClient().connectToMessageServer();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initDbService(Serializer serializer, Socket messageServer) {
@@ -54,7 +62,7 @@ public class DatabaseClient {
         userDao = new UserDao(dbTemplateImpl);
         userDao.initDb();
 
-        var databaseMsClient = new MsClientImpl(serializer, DATABASE_SERVICE_CLIENT_NAME, messageServer);
+        var databaseMsClient = new MsClientImpl(serializer, DATABASE_SERVICE_CLIENT_NAME, messageServer, this);
 
         RequestHandler usersRequestHandler = new UserRequestHandler(userDao, serializer);
         databaseMsClient.addHandler(MessageType.USER_DATA, usersRequestHandler);
@@ -62,7 +70,7 @@ public class DatabaseClient {
         databaseMsClient.startListening();
     }
 
-    private void connectToMessageServer() {
+    public void connectToMessageServer() {
         try {
             Socket clientSocket = new Socket(HOST, PORT);
             initDbService(new Serializer(), clientSocket);
@@ -71,17 +79,18 @@ public class DatabaseClient {
         }
     }
 
-    private static Properties getProperties() {
+    private static Properties getProperties() throws ParametersLoadException {
         ClassLoader classLoader = DatabaseClient.class.getClassLoader();
-        File file = new File(classLoader.getResource(CONFIG_NAME).getFile());
         Properties properties = new Properties();
-        try (
-                FileInputStream fileInputStream = new FileInputStream(file)) {
-            properties.load(fileInputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        File file = new File(classLoader.getResource(CONFIG_NAME).getFile());
+        if (file.exists() && file.canRead()) {
+            try (FileInputStream fileInputStream = new FileInputStream(file)) {
+                properties.load(fileInputStream);
+            } catch (IOException e) {
+                throw new ParametersLoadException(e.getMessage());
+            }
+        } else {
+            throw new ParametersLoadException("File doesn't may read");
         }
 
         return properties;

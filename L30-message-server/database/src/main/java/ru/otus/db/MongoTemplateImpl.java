@@ -30,7 +30,7 @@ public class MongoTemplateImpl implements DbTemplate {
         val document = new Document(mapper.convertValue(value, STR_OBJECT_MAP_TYPE_REF));
         document.remove("_id");
         collection.insertOne(document);
-        log.info("Object insert", value);
+        log.info("Object insert {}", value);
         return (ObjectId) document.get("_id");
     }
 

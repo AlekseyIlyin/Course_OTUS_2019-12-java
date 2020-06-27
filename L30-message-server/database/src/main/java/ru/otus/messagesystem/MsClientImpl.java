@@ -3,6 +3,7 @@ package ru.otus.messagesystem;
 import com.google.gson.Gson;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import ru.otus.DatabaseClient;
 import ru.otus.Serializer;
 
 import java.io.BufferedReader;
@@ -25,8 +26,10 @@ public class MsClientImpl implements MsClient {
     private final Map<String, RequestHandler> handlers = new ConcurrentHashMap<>();
     private PrintWriter messageSystemOut;
     private BufferedReader messageSystemIn;
+    private final DatabaseClient databaseClient;
 
-    public MsClientImpl(Serializer serializer, String name, Socket messageSystem) {
+    public MsClientImpl(Serializer serializer, String name, Socket messageSystem, DatabaseClient databaseClient) {
+        this.databaseClient = databaseClient;
         this.serializer = serializer;
         this.name = name;
         this.id = UUID.randomUUID();
@@ -59,6 +62,9 @@ public class MsClientImpl implements MsClient {
     @SneakyThrows
     @Override
     public boolean sendMessage(Message msg) {
+        if (messageSystem.isClosed()) {
+            databaseClient.connectToMessageServer();
+        }
         messageSystemOut.println(gson.toJson(msg));
         messageSystemOut.flush();
         return true;

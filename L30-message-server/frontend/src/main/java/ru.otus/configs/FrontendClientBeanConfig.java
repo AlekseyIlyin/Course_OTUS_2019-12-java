@@ -18,10 +18,10 @@ import java.util.UUID;
 @Configuration
 @Slf4j
 public class FrontendClientBeanConfig {
-    private static final String FRONTEND_SERVICE_CLIENT_NAME = "frontendService";
-    private static final String DATABASE_SERVICE_CLIENT_NAME = "databaseService";
-    private static final int PORT = 53333; //8080;
-    private static final String HOST = "localhost";
+    private final static String FRONTEND_SERVICE_CLIENT_NAME = "frontendService";
+    private final static String DATABASE_SERVICE_CLIENT_NAME = "databaseService";
+    private final static int PORT = 53333; //8080;
+    private final static String HOST = "localhost";
     
     @Bean
     public String getDatabaseServiceClientName() {

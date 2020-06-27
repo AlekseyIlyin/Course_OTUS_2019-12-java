@@ -24,7 +24,7 @@ public class FrontendServiceImpl implements FrontendService {
     private final MsClient frontendMsClient;
     private final String databaseServiceClientName;
 
-    public FrontendServiceImpl(@Lazy MsClient frontendMsClient, String databaseServiceClientName) {
+    public FrontendServiceImpl(MsClient frontendMsClient, String databaseServiceClientName) {
         this.frontendMsClient = frontendMsClient;
         this.databaseServiceClientName = databaseServiceClientName;
     }
