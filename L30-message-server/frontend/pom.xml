@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring-boot.framework.version>2.3.0.RELEASE</spring-boot.framework.version>
-        <spring.version>5.2.6.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
 
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
         <javax.json-api.version>1.1.4</javax.json-api.version>
